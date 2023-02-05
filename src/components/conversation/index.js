@@ -1,6 +1,7 @@
 import {  Box,Stack } from "@mui/material";
 import Footer from "./Footer";
 import Header from "./Header";
+import Message from "./Message";
 
 
 const Conversation = () => {
@@ -10,7 +11,9 @@ const Conversation = () => {
 			{/* header */}
 			<Header/>
 			{/* coversations */}
-			<Box sx={{ flexGrow: 1, height: "auto" }}></Box>
+			<Box sx={{ flexGrow: 1, height: "auto" }}>
+				<Message/>
+			</Box>
 			{/* footer */}
 			<Footer/>
 		</Stack>
