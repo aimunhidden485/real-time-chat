@@ -1,5 +1,53 @@
-import { Box, Divider, IconButton, Link, Stack, Typography, useTheme } from "@mui/material";
-import { DownloadSimple, Image } from "phosphor-react";
+import { Box, Divider, IconButton, Link, Menu, MenuItem, Stack, Typography, useTheme } from "@mui/material";
+import { DotsThreeVertical, DownloadSimple, Image } from "phosphor-react";
+import { useState } from "react";
+import { Message_options } from "../../data";
+
+export const MsgOptions = ({ el }) => {
+	const [anchorEl, setAnchorEl] = useState(null);
+	const open = Boolean(anchorEl);
+	const handleClick = (event) => {
+		setAnchorEl(event.currentTarget);
+	};
+	const handleClose = () => {
+		setAnchorEl(null);
+	};
+
+	return (
+		<>
+			<IconButton
+				id="demo-positioned-button"
+				aria-controls={open ? "demo-positioned-menu" : undefined}
+				aria-haspopup="true"
+				aria-expanded={open ? "true" : undefined}
+				onClick={handleClick}
+			>
+				<DotsThreeVertical />
+			</IconButton>
+			<Menu
+				id="demo-positioned-menu"
+				aria-labelledby="demo-positioned-button"
+				anchorEl={anchorEl}
+				open={open}
+				onClose={handleClose}
+				anchorOrigin={{
+					vertical: "top",
+					horizontal: "right",
+				}}
+				transformOrigin={{
+					vertical: "top",
+					horizontal: "left",
+				}}
+			>
+				<Stack>
+					{Message_options.map((el) => (
+						<MenuItem onClick={handleClose} key={el.title}>{el.title}</MenuItem>
+					))}
+				</Stack>
+			</Menu>
+		</>
+	);
+};
 
 export const TextMessage = ({ el }) => {
 	const theme = useTheme();
@@ -10,6 +58,7 @@ export const TextMessage = ({ el }) => {
 					{el.message}
 				</Typography>
 			</Box>
+			<MsgOptions />
 		</Stack>
 	);
 };
@@ -25,6 +74,7 @@ export const MediaMsg = ({ el }) => {
 					</Typography>
 				</Stack>
 			</Box>
+			<MsgOptions/>
 		</Stack>
 	);
 };
@@ -34,16 +84,26 @@ export const DocMsg = ({ el }) => {
 		<Stack direction="row" width="100%" alignItems={"center"} justifyContent={el.incoming ? "start" : "end"}>
 			<Box p={1.5} sx={{ width: "max-content", backgroundColor: el.incoming ? theme.palette.background.default : theme.palette.primary.main, borderRadius: 1.5 }}>
 				<Stack spacing={2}>
-					<Stack spacing={2} direction="row" alignItems="center" justifyContent={"space-between"} sx={{ backgroundColor: theme.palette.background.paper, borderRadius: 1.5 }}>
+					<Stack
+						p={1}
+						spacing={2}
+						direction="row"
+						alignItems="center"
+						justifyContent={"space-between"}
+						sx={{ backgroundColor: theme.palette.background.paper, borderRadius: 1.5 }}
+					>
 						<Image size={48} />
-						<Typography variant='caption'>Abstract.png</Typography>
-<IconButton><DownloadSimple/></IconButton>
+						<Typography variant="caption">Abstract.png</Typography>
+						<IconButton>
+							<DownloadSimple />
+						</IconButton>
 					</Stack>
 					<Typography variant="body2" sx={{ color: el.incoming ? theme.palette.text : "#fff" }}>
 						{el.message}
 					</Typography>
 				</Stack>
 			</Box>
+			<MsgOptions/>
 		</Stack>
 	);
 };
@@ -63,6 +123,7 @@ export const ReplyMsg = ({ el }) => {
 					</Typography>
 				</Stack>
 			</Box>
+			<MsgOptions/>
 		</Stack>
 	);
 };
@@ -88,6 +149,7 @@ export const LinkMsg = ({ el }) => {
 					</Typography>
 				</Stack>
 			</Box>
+			<MsgOptions/>
 		</Stack>
 	);
 };
