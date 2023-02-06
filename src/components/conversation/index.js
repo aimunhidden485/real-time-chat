@@ -7,7 +7,7 @@ import Message from "./Message";
 const Conversation = () => {
 	
 	return (
-		<Stack height={"100%"} maxHeight={"100vh"}>
+		<Stack height={"100%"} maxHeight={"100vh"} width='100%'>
 			{/* header */}
 			<Header/>
 			{/* coversations */}

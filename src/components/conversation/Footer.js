@@ -12,7 +12,7 @@ const StyledInput = styled(TextField)(({ theme }) => ({
 	},
 }));
     return (
-        <Box sx={{ py: 1.5, backgroundColor: theme.palette.mode === 'light' ? "#f8faff":theme.palette.background.paper, boxShadow: "0px 0px 2px rgba(0,0, 0, 0.25)" }}>
+        <Box  sx={{ position: 'sticky',bottom: 0, right: 0, width: '100%',py: 1.5, backgroundColor: theme.palette.mode === 'light' ? "#f8faff":theme.palette.background.paper, boxShadow: "0px 0px 2px rgba(0,0, 0, 0.25)" }}>
 				<Stack spacing={2} height="100%" direction="row" alignItems={"center"} justifyContent={"space-between"} width="100%" px={2}>
 					<StyledInput 
 					fullWidth 

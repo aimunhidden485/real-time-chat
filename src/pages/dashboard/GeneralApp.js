@@ -13,8 +13,8 @@ const GeneralApp = () => {
 			{/* conversations */}
 
 			<Box sx={{ width: "calc(100vw - 420px)",
-			 backgroundColor: theme.palette.mode === 'light' ?"#fff" :theme.palette.background.default, 
-			 height: "100%" }}>
+			 backgroundColor: theme.palette.mode === 'light' ?"#f0f4fa" :theme.palette.background.default, 
+			 height: "100%", position: 'relative', overflowY: 'scroll'}}>
 				<Conversation />
 			</Box>
 		</Stack>
