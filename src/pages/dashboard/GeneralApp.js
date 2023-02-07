@@ -1,4 +1,4 @@
-import { Box, Stack } from "@mui/material";
+import { Box,  Stack } from "@mui/material";
 import React from "react";
 import { useTheme } from "@mui/material/styles";
 import Conversation from "../../components/conversation";
@@ -17,8 +17,7 @@ const GeneralApp = () => {
 			{/* conversations */}
 			<Box
 				sx={{
-					// width: sideInfo.open ? "calc(100vw - 740px)" : "calc(100vw- 420px)",
-					flexGrow: 1,
+					width: sideInfo.open ? "calc(100vw - 740px)" : "calc(100vw - 420px)",
 					backgroundColor: theme.palette.mode === "light" ? "#f0f4fa" : theme.palette.background.default,
 					position: "relative",
 					height: "100vh",
@@ -27,10 +26,7 @@ const GeneralApp = () => {
 			>
 				<Conversation />
 			</Box>
-			{
-				sideInfo.open && <Contact />
-			}
-			
+			{sideInfo.open && <Contact />}
 		</Stack>
 	);
 };

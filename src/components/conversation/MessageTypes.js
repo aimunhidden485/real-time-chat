@@ -32,7 +32,7 @@ export const MsgOptions = ({ el }) => {
 				onClose={handleClose}
 				anchorOrigin={{
 					vertical: "top",
-					horizontal: "right",
+					horizontal: 'left',
 				}}
 				transformOrigin={{
 					vertical: "top",
@@ -52,20 +52,20 @@ export const MsgOptions = ({ el }) => {
 export const TextMessage = ({ el }) => {
 	const theme = useTheme();
 	return (
-		<Stack direction="row" width="100%" alignItems={"center"} justifyContent={el.incoming ? "start" : "end"}>
+		<Stack direction={!el.incoming?"row-reverse": 'row'} width="100%" alignItems={"center"} justifyContent={el.incoming ? "start" : "end"}>
 			<Box p={1.5} sx={{ width: "max-content", backgroundColor: el.incoming ? theme.palette.background.default : theme.palette.primary.main, borderRadius: 1.5 }}>
 				<Typography variant="body2" sx={{ color: el.incoming ? theme.palette.text : "#fff" }}>
 					{el.message}
 				</Typography>
 			</Box>
-			<MsgOptions />
+			<MsgOptions el={el}/>
 		</Stack>
 	);
 };
 export const MediaMsg = ({ el }) => {
 	const theme = useTheme();
 	return (
-		<Stack direction="row" width="100%" alignItems={"center"} justifyContent={el.incoming ? "start" : "end"}>
+		<Stack direction={!el.incoming?"row-reverse": 'row'} width="100%" alignItems={"center"} justifyContent={el.incoming ? "start" : "end"}>
 			<Box p={1.5} sx={{ width: "max-content", backgroundColor: el.incoming ? theme.palette.background.default : theme.palette.primary.main, borderRadius: 1.5 }}>
 				<Stack spacing={1}>
 					<img src={el.img} alt={el.msg} style={{ maxHeight: "210px", borderRadius: 1.5 }} />
@@ -74,14 +74,14 @@ export const MediaMsg = ({ el }) => {
 					</Typography>
 				</Stack>
 			</Box>
-			<MsgOptions/>
+			<MsgOptions el={el}/>
 		</Stack>
 	);
 };
 export const DocMsg = ({ el }) => {
 	const theme = useTheme();
 	return (
-		<Stack direction="row" width="100%" alignItems={"center"} justifyContent={el.incoming ? "start" : "end"}>
+		<Stack direction={!el.incoming?"row-reverse": 'row'} width="100%" alignItems={"center"} justifyContent={el.incoming ? "start" : "end"}>
 			<Box p={1.5} sx={{ width: "max-content", backgroundColor: el.incoming ? theme.palette.background.default : theme.palette.primary.main, borderRadius: 1.5 }}>
 				<Stack spacing={2}>
 					<Stack
@@ -103,14 +103,14 @@ export const DocMsg = ({ el }) => {
 					</Typography>
 				</Stack>
 			</Box>
-			<MsgOptions/>
+			<MsgOptions el={el}/>
 		</Stack>
 	);
 };
 export const ReplyMsg = ({ el }) => {
 	const theme = useTheme();
 	return (
-		<Stack direction="row" width="100%" alignItems={"center"} justifyContent={el.incoming ? "start" : "end"}>
+		<Stack direction={!el.incoming?"row-reverse": 'row'} width="100%" alignItems={"center"} justifyContent={el.incoming ? "start" : "end"}>
 			<Box p={1.5} sx={{ width: "max-content", backgroundColor: el.incoming ? theme.palette.background.default : theme.palette.primary.main, borderRadius: 1.5 }}>
 				<Stack spacing={2}>
 					<Stack p={2} sx={{ backgroundColor: theme.palette.background.paper, borderRadius: 1.5 }}>
@@ -123,14 +123,14 @@ export const ReplyMsg = ({ el }) => {
 					</Typography>
 				</Stack>
 			</Box>
-			<MsgOptions/>
+			<MsgOptions el={el}/>
 		</Stack>
 	);
 };
 export const LinkMsg = ({ el }) => {
 	const theme = useTheme();
 	return (
-		<Stack direction="row" width="100%" alignItems={"center"} justifyContent={el.incoming ? "start" : "end"}>
+		<Stack direction={!el.incoming?"row-reverse": 'row'} width="100%" alignItems={"center"} justifyContent={el.incoming ? "start" : "end"}>
 			<Box p={1} sx={{ width: "max-content", backgroundColor: el.incoming ? theme.palette.background.default : theme.palette.primary.main, borderRadius: 1.5 }}>
 				<Stack p={1} direction="column" alignItems={"center"} sx={{ backgroundColor: theme.palette.background.paper, borderRadius: 1 }}>
 					<Stack>
@@ -149,7 +149,7 @@ export const LinkMsg = ({ el }) => {
 					</Typography>
 				</Stack>
 			</Box>
-			<MsgOptions/>
+			<MsgOptions el={el}/>
 		</Stack>
 	);
 };
