@@ -5,7 +5,7 @@ import { DocMsg, LinkMsg, MediaMsg, ReplyMsg, TextMessage, Timeline } from "./Me
 
 const Message = () => {
 	return (
-		<Box p={3}>
+		<Box p={3} sx={{height: '100%', overflowY: 'scoll'}}>
 			<Stack direction={"column"} spacing={3}>
 				{Chat_History.map(el=> {
                     

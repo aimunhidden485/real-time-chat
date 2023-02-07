@@ -93,6 +93,7 @@ const Sidebar = () => {
 							vertical: "top",
 							horizontal: "left",
 						}}
+						
 					>
 						{Profile_Menu.map((el) => (
 							<MenuItem onClick={handleClose}><Stack spacing={2} direction='row' sx={{width: 100}}><span>{el.icon}</span><span>{el.title}</span></Stack></MenuItem>

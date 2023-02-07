@@ -7,11 +7,11 @@ import Message from "./Message";
 const Conversation = () => {
 	
 	return (
-		<Stack height={"100%"} maxHeight={"100vh"} width='100%'>
+		<Stack height={"100%"}  width='100%'>
 			{/* header */}
 			<Header/>
 			{/* coversations */}
-			<Box sx={{ flexGrow: 1, height: "auto" }}>
+			<Box sx={{ flexGrow: 1, }}>
 				<Message/>
 			</Box>
 			{/* footer */}
